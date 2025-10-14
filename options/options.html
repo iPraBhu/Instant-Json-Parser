@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="optionsTitle">Instant JSON Parser Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="options">
+    <header class="options__header">
+      <h1 data-i18n="optionsHeading">Instant JSON Parser Settings</h1>
+      <p class="options__description" data-i18n="optionsDescription">Configure how Instant JSON Parser behaves.</p>
+    </header>
+
+    <section class="options__meta">
+      <div class="meta-item">
+        <span class="meta-label" data-i18n="optionsAppName">App</span>
+        <span id="metaAppName"></span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label" data-i18n="optionsVersion">Version</span>
+        <span id="metaVersion"></span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label" data-i18n="optionsAuthor">Author</span>
+        <span id="metaAuthor"></span>
+      </div>
+    </section>
+
+    <form id="optionsForm" class="options__form">
+      <fieldset>
+        <legend data-i18n="optionsGeneral">General</legend>
+        <label class="form-control">
+          <span data-i18n="optionAutoPaste">Auto-paste from clipboard on popup open</span>
+          <input type="checkbox" name="autoPaste">
+        </label>
+        <label class="form-control">
+          <span data-i18n="optionRememberInput">Remember last input</span>
+          <input type="checkbox" name="rememberLastInput">
+        </label>
+        <label class="form-control">
+          <span data-i18n="optionLenientMode">Lenient mode (allow comments, trailing commas)</span>
+          <input type="checkbox" name="lenientMode">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="optionsFormatting">Formatting</legend>
+        <div class="form-control">
+          <span data-i18n="optionIndent">Indent size</span>
+          <div class="button-group" role="radiogroup">
+            <label>
+              <input type="radio" name="indent" value="2">
+              <span>2</span>
+            </label>
+            <label>
+              <input type="radio" name="indent" value="4">
+              <span>4</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-control">
+          <label>
+            <span data-i18n="optionDuplicatePolicy">Duplicate key policy</span>
+            <select name="duplicatePolicy">
+              <option value="error" data-i18n="duplicatePolicyError">Treat as error</option>
+              <option value="first" data-i18n="duplicatePolicyFirst">Keep first occurrence</option>
+              <option value="last" data-i18n="duplicatePolicyLast">Keep last occurrence</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="optionsTheme">Theme</legend>
+        <label class="form-control">
+          <span data-i18n="optionCaseInsensitive">Default search case-insensitive</span>
+          <input type="checkbox" name="caseInsensitiveSearch">
+        </label>
+        <div class="form-control">
+          <label>
+            <span data-i18n="optionTheme">Default theme</span>
+            <select name="theme">
+              <option value="system" data-i18n="themeSystem">System</option>
+              <option value="light" data-i18n="themeLight">Light</option>
+              <option value="dark" data-i18n="themeDark">Dark</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend data-i18n="optionsLimits">Limits</legend>
+        <label class="form-control">
+          <span data-i18n="optionMaxSize">Max input size (MB)</span>
+          <input type="number" name="maxInputBytes" min="1" step="1">
+        </label>
+        <label class="form-control">
+          <span data-i18n="optionMaxDepth">Max JSON depth</span>
+          <input type="number" name="maxDepth" min="1" step="1">
+        </label>
+      </fieldset>
+
+      <div class="options__actions">
+        <button id="resetButton" type="button" class="secondary-button" data-i18n="resetButton">Reset to defaults</button>
+        <button type="submit" class="primary-button" data-i18n="saveButton">Save settings</button>
+      </div>
+      <p id="statusMessage" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

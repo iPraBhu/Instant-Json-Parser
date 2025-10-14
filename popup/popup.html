@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="appName">Instant JSON Parser</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body data-theme="light">
+  <header class="toolbar">
+    <div class="title-block">
+      <img id="appLogo" src="../logo/svg/logo-light.svg" alt="" class="logo" draggable="false">
+      <div class="title-text">
+        <h1 data-i18n="appName">Instant JSON Parser</h1>
+        <span class="version-label" id="appVersion"></span>
+      </div>
+    </div>
+    <div class="toolbar-controls">
+      <button id="themeToggle" class="icon-button" type="button" aria-pressed="false" data-i18n-aria-label="themeToggleLabel">
+        <span id="themeToggleText">☀</span>
+      </button>
+      <nav class="view-tabs" role="tablist" data-i18n-aria-label="viewTabsLabel">
+        <button id="tabPretty" class="tab-button active" type="button" role="tab" aria-selected="true" data-view="pretty" data-i18n="tabPretty">Pretty</button>
+        <button id="tabTree" class="tab-button" type="button" role="tab" aria-selected="false" data-view="tree" data-i18n="tabTree">Tree</button>
+      </nav>
+      <div class="search-group">
+        <input id="searchInput" type="search" autocomplete="off" placeholder="" aria-label="" data-i18n-placeholder="searchPlaceholder" data-i18n-aria-label="searchAriaLabel">
+        <button id="searchCaseToggle" class="icon-button" type="button" aria-pressed="true" data-i18n-aria-label="searchCaseToggle">Aa</button>
+        <span id="searchStatus" class="search-status" aria-live="polite">0/0</span>
+        <button id="searchPrev" class="icon-button" type="button" aria-label="" data-i18n-aria-label="searchPrev">⟨</button>
+        <button id="searchNext" class="icon-button" type="button" aria-label="" data-i18n-aria-label="searchNext">⟩</button>
+      </div>
+      <button id="copyOutput" class="primary-button" type="button" data-i18n="copyOutput">Copy Output</button>
+    </div>
+  </header>
+  <main class="layout">
+    <section class="input-panel">
+      <label for="jsonInput" class="visually-hidden" data-i18n="inputLabel">JSON input</label>
+      <textarea id="jsonInput" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="none" aria-describedby="inputHelp"></textarea>
+      <div class="input-actions">
+        <button id="pasteClipboard" class="secondary-button" type="button" data-i18n="pasteClipboard">Paste from Clipboard</button>
+        <button id="parseButton" class="primary-button" type="button" data-i18n="parseButton">Parse (Ctrl/Cmd+Enter)</button>
+      </div>
+      <p id="inputHelp" class="input-help" data-i18n="inputHelpText">Paste JSON here or use the clipboard button.</p>
+    </section>
+    <section class="output-panel">
+      <div class="view-actions">
+        <button id="expandAll" class="secondary-button" type="button" data-i18n="expandAll">Expand All</button>
+        <button id="collapseAll" class="secondary-button" type="button" data-i18n="collapseAll">Collapse All</button>
+      </div>
+      <div id="errorPanel" class="error-panel" role="alert" hidden>
+        <div class="error-header">
+          <h2 data-i18n="errorHeading">Parsing error</h2>
+          <span id="errorPosition"></span>
+        </div>
+        <p id="errorMessage"></p>
+        <pre id="errorSnippet"></pre>
+        <p id="errorTip" class="error-tip" data-i18n="errorTip">Check for trailing commas, missing quotes, or other syntax issues.</p>
+      </div>
+      <div id="outputWrapper" class="output-wrapper">
+        <div id="prettyContainer" class="output-view" role="tabpanel" aria-labelledby="tabPretty" tabindex="0"></div>
+        <div id="treeContainer" class="output-view hidden" role="tabpanel" aria-labelledby="tabTree" tabindex="0"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="status-bar">
+    <div id="statusBadges" class="status-badges" aria-live="polite"></div>
+    <div id="statusLine" class="status-text" aria-live="polite"></div>
+    <div id="pointerLine" class="status-pointer" aria-live="polite"></div>
+  </footer>
+  <div class="footer-note">
+    <p>Built with <span class="footer-heart" aria-hidden="true">❤</span><span class="visually-hidden">love</span> by Pratik Bhuite.</p>
+    <p>Your data is secure and never leaves your browser—parsing happens entirely on-device.</p>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

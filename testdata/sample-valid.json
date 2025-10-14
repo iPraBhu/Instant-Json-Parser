@@ -1,0 +1,15 @@
+{
+  "name": "Instant JSON Parser",
+  "version": "1.0.0",
+  "features": [
+    "Pretty print",
+    "Tree view",
+    "Clipboard integration",
+    "Search"
+  ],
+  "settings": {
+    "autoPaste": true,
+    "indent": 2,
+    "lenientMode": false
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Broken JSON",
+  "missingQuote": "example,
+  "list": [1, 2, 3,, 4]
+}

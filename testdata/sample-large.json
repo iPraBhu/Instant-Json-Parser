@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ada Lovelace",
+      "roles": ["admin", "developer"],
+      "active": true,
+      "meta": {
+        "projects": ["Difference Engine", "Analytical Engine"],
+        "bio": "Mathematician and writer, recognised as the first computer programmer."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Grace Hopper",
+      "roles": ["developer"],
+      "active": true,
+      "meta": {
+        "projects": ["COBOL", "UNIVAC"],
+        "bio": "Computer scientist and US Navy rear admiral. Pioneer of computer programming."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Katherine Johnson",
+      "roles": ["analyst", "mathematician"],
+      "active": false,
+      "meta": {
+        "projects": ["NASA Mercury", "Apollo 11"],
+        "bio": "NASA mathematician whose calculations were critical to the success of US crewed spaceflights."
+      }
+    }
+  ],
+  "metrics": {
+    "uptime": 99.982,
+    "requests": 1573492,
+    "latency": {
+      "p50": 42,
+      "p90": 88,
+      "p99": 123
+    }
+  },
+  "logs": [
+    {
+      "timestamp": "2024-01-01T12:00:00Z",
+      "message": "System started"
+    },
+    {
+      "timestamp": "2024-01-01T12:05:00Z",
+      "message": "Initial data load complete"
+    }
+  ]
+}

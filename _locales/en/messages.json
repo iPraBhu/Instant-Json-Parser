@@ -1,0 +1,200 @@
+{
+  "appName": {
+    "message": "Instant JSON Parser"
+  },
+  "extensionDescription": {
+    "message": "Instantly prettify, explore, and search JSON with a clipboard-aware popup."
+  },
+  "actionTitle": {
+    "message": "Open Instant JSON Parser"
+  },
+  "tabPretty": {
+    "message": "Pretty"
+  },
+  "tabTree": {
+    "message": "Tree"
+  },
+  "copyOutput": {
+    "message": "Copy Output"
+  },
+  "searchPlaceholder": {
+    "message": "Search JSON"
+  },
+  "searchAriaLabel": {
+    "message": "Search JSON"
+  },
+  "searchCaseToggle": {
+    "message": "Toggle case-insensitive search"
+  },
+  "searchPrev": {
+    "message": "Previous match"
+  },
+  "searchNext": {
+    "message": "Next match"
+  },
+  "themeToggleLabel": {
+    "message": "Toggle theme"
+  },
+  "viewTabsLabel": {
+    "message": "Output view"
+  },
+  "inputLabel": {
+    "message": "JSON input"
+  },
+  "pasteClipboard": {
+    "message": "Paste from Clipboard"
+  },
+  "parseButton": {
+    "message": "Parse (Ctrl/Cmd+Enter)"
+  },
+  "inputHelpText": {
+    "message": "Paste JSON here or use the clipboard button."
+  },
+  "expandAll": {
+    "message": "Expand All"
+  },
+  "collapseAll": {
+    "message": "Collapse All"
+  },
+  "errorHeading": {
+    "message": "Parsing error"
+  },
+  "errorTip": {
+    "message": "Check for trailing commas, missing quotes, or other syntax issues."
+  },
+  "statusReady": {
+    "message": "Ready."
+  },
+  "statusParsed": {
+    "message": "Parsed successfully."
+  },
+  "statusCopied": {
+    "message": "Copied to clipboard."
+  },
+  "statusCopyFailed": {
+    "message": "Unable to copy."
+  },
+  "statusClipboardUnavailable": {
+    "message": "Clipboard unavailable."
+  },
+  "statusParseFailed": {
+    "message": "Parsing failed."
+  },
+  "statusPointerCopied": {
+    "message": "JSON Pointer copied."
+  },
+  "statusDuplicateBadge": {
+    "message": "Duplicate keys detected"
+  },
+  "statusLenientBadge": {
+    "message": "Lenient mode applied"
+  },
+  "statusSizeLimit": {
+    "message": "Input exceeds configured size limit."
+  },
+  "statusDepthLimit": {
+    "message": "Input exceeds configured depth limit."
+  },
+  "pointerLabel": {
+    "message": "Pointer"
+  },
+  "themeToggleLight": {
+    "message": "Light theme"
+  },
+  "themeToggleDark": {
+    "message": "Dark theme"
+  },
+  "contextMenuPaste": {
+    "message": "Open Instant JSON Parser (Paste)"
+  },
+  "contextMenuFormat": {
+    "message": "Open Instant JSON Parser"
+  },
+  "optionsTitle": {
+    "message": "Instant JSON Parser Options"
+  },
+  "optionsHeading": {
+    "message": "Instant JSON Parser Settings"
+  },
+  "optionsDescription": {
+    "message": "Configure how Instant JSON Parser behaves."
+  },
+  "optionsAppName": {
+    "message": "App"
+  },
+  "optionsVersion": {
+    "message": "Version"
+  },
+  "optionsAuthor": {
+    "message": "Author"
+  },
+  "optionsGeneral": {
+    "message": "General"
+  },
+  "optionAutoPaste": {
+    "message": "Auto-paste from clipboard on popup open"
+  },
+  "optionRememberInput": {
+    "message": "Remember last input"
+  },
+  "optionLenientMode": {
+    "message": "Lenient mode (allow comments, trailing commas)"
+  },
+  "optionsFormatting": {
+    "message": "Formatting"
+  },
+  "optionIndent": {
+    "message": "Indent size"
+  },
+  "optionDuplicatePolicy": {
+    "message": "Duplicate key policy"
+  },
+  "duplicatePolicyError": {
+    "message": "Treat as error"
+  },
+  "duplicatePolicyFirst": {
+    "message": "Keep first occurrence"
+  },
+  "duplicatePolicyLast": {
+    "message": "Keep last occurrence"
+  },
+  "optionsTheme": {
+    "message": "Theme"
+  },
+  "optionCaseInsensitive": {
+    "message": "Default search case-insensitive"
+  },
+  "optionTheme": {
+    "message": "Default theme"
+  },
+  "themeSystem": {
+    "message": "System"
+  },
+  "themeLight": {
+    "message": "Light"
+  },
+  "themeDark": {
+    "message": "Dark"
+  },
+  "optionsLimits": {
+    "message": "Limits"
+  },
+  "optionMaxSize": {
+    "message": "Max input size (MB)"
+  },
+  "optionMaxDepth": {
+    "message": "Max JSON depth"
+  },
+  "resetButton": {
+    "message": "Reset to defaults"
+  },
+  "saveButton": {
+    "message": "Save settings"
+  },
+  "statusSaved": {
+    "message": "Settings saved."
+  },
+  "statusReset": {
+    "message": "Settings reset to defaults."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  // Example configuration with comments
+  "endpoint": "https://api.example.test",
+  "retry": {
+    "count": 3,
+    "backoff": "exponential", // trailing comma allowed
+  },
+  "features": [
+    "pretty",
+    "tree",
+    "search", // comment inside array
+  ]
+}
