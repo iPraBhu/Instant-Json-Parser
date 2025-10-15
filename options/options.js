@@ -45,6 +45,7 @@ function populateMeta() {
 
 function hydrateForm(settings) {
   form.autoPaste.checked = settings.autoPaste;
+  form.autoParseOnBlur.checked = settings.autoParseOnBlur;
   form.rememberLastInput.checked = settings.rememberLastInput;
   form.lenientMode.checked = settings.lenientMode;
   form.caseInsensitiveSearch.checked = settings.caseInsensitiveSearch;
@@ -83,6 +84,7 @@ async function handleSubmit(event) {
 
   const nextSettings = {
     autoPaste: form.autoPaste.checked,
+    autoParseOnBlur: form.autoParseOnBlur.checked,
     rememberLastInput: form.rememberLastInput.checked,
     lenientMode: form.lenientMode.checked,
     caseInsensitiveSearch: form.caseInsensitiveSearch.checked,

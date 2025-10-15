@@ -35,6 +35,10 @@
   </header>
   <main class="layout">
     <section class="input-panel">
+      <div id="clipboardNotice" class="privacy-banner" role="status" aria-live="polite" hidden>
+        <span data-i18n="clipboardNoticeMessage">Auto-paste reads your clipboard when the popup opens. Content never leaves your browser.</span>
+        <button id="dismissClipboardNotice" class="ghost-button" type="button" data-i18n="clipboardNoticeDismiss">Got it</button>
+      </div>
       <label for="jsonInput" class="visually-hidden" data-i18n="inputLabel">JSON input</label>
       <textarea id="jsonInput" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="none" aria-describedby="inputHelp"></textarea>
       <div class="input-actions">

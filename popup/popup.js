@@ -53,6 +53,7 @@ let treeApi = null;
 let currentView = 'pretty';
 let caseInsensitive = true;
 let systemThemeCleanup = null;
+let lastParsedInput = '';
 
 window.addEventListener('DOMContentLoaded', init);
 window.addEventListener('beforeunload', () => {
@@ -85,6 +86,7 @@ async function init() {
 
   setCaseInsensitive(caseInsensitive, { persist: false });
   applyThemeFromState();
+  updateClipboardNotice();
 
   if (settings.rememberLastInput && persistedState.lastInput) {
     elements.textarea.value = persistedState.lastInput;
@@ -98,6 +100,9 @@ async function init() {
   if (elements.textarea.value.trim()) {
     parseAndRender();
   } else if (settings.autoPaste) {
+    if (shouldShowClipboardNotice()) {
+      await new Promise((resolve) => requestAnimationFrame(() => resolve()));
+    }
     await attemptAutoPaste();
   }
 
@@ -162,6 +167,8 @@ function cacheElements() {
   elements.expandAll = document.getElementById('expandAll');
   elements.collapseAll = document.getElementById('collapseAll');
   elements.version = document.getElementById('appVersion');
+  elements.clipboardNotice = document.getElementById('clipboardNotice');
+  elements.dismissClipboardNotice = document.getElementById('dismissClipboardNotice');
 }
 
 function bindEvents() {
@@ -183,6 +190,7 @@ function bindEvents() {
       persistInput();
     }, 300)
   );
+  elements.textarea.addEventListener('blur', handleTextareaBlur);
 
   elements.searchInput.addEventListener(
     'input',
@@ -206,6 +214,8 @@ function bindEvents() {
     setCaseInsensitive(!caseInsensitive);
     runSearch();
   });
+
+  elements.dismissClipboardNotice?.addEventListener('click', dismissClipboardNotice);
 
   document.addEventListener('keydown', (event) => {
     const mod = event.metaKey || event.ctrlKey;
@@ -272,6 +282,7 @@ function parseAndRender() {
     clearOutput();
     setStatusLine(STRINGS.statusReady);
     hideErrorPanel();
+    lastParsedInput = input;
     return;
   }
 
@@ -286,6 +297,7 @@ function parseAndRender() {
   try {
     result = parseJson(input, parseOptions);
   } catch (error) {
+    lastParsedInput = input;
     handleParseError(error);
     return;
   }
@@ -298,11 +310,45 @@ function parseAndRender() {
   setStatusLine(stats);
   setActionAvailability(true);
   runSearch();
+  lastParsedInput = input;
 
   if (settings.rememberLastInput) {
     persistedState.lastInput = input;
     saveState({ lastInput: input }).catch(() => {});
   }
+}
+
+function handleTextareaBlur() {
+  if (!settings.autoParseOnBlur) {
+    return;
+  }
+  const input = elements.textarea.value;
+  if (input === lastParsedInput) {
+    return;
+  }
+  parseAndRender();
+}
+
+function shouldShowClipboardNotice() {
+  if (!settings.autoPaste) {
+    return false;
+  }
+  return !persistedState.clipboardNoticeDismissed;
+}
+
+function updateClipboardNotice() {
+  if (!elements.clipboardNotice) {
+    return;
+  }
+  elements.clipboardNotice.hidden = !shouldShowClipboardNotice();
+}
+
+function dismissClipboardNotice() {
+  persistedState.clipboardNoticeDismissed = true;
+  if (elements.clipboardNotice) {
+    elements.clipboardNotice.hidden = true;
+  }
+  saveState({ clipboardNoticeDismissed: true }).catch(() => {});
 }
 
 function renderOutput(value) {

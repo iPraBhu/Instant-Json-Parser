@@ -28,7 +28,8 @@
   "options_page": "options/options.html",
   "permissions": [
     "storage",
-    "clipboardRead"
+    "clipboardRead",
+    "contextMenus"
   ],
   "offline_enabled": true
 }

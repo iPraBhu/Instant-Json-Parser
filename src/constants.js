@@ -14,6 +14,7 @@ export const LIMITS = Object.freeze({
 
 export const DEFAULT_SETTINGS = Object.freeze({
   autoPaste: true,
+  autoParseOnBlur: true,
   lenientMode: false,
   duplicatePolicy: 'error',
   indent: 2,
